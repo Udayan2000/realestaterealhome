@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home in Coral Gables | Real Homes</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" />
+        <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <!-- ================= HEADER ================= -->
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="index.html" class="logo">
+                    <span class="logo-mark">
+                        <svg width="34" height="34" viewBox="0 0 34 34"
+                            fill="none"><path
+                                d="M17 3 3 14v17h9V21h10v10h9V14L17 3Z"
+                                fill="#2F8AE0" /></svg>
+                    </span>
+                    <span class="logo-text">REAL<br>HOMES</span>
+                </a>
+
+                <nav class="main-nav" id="mainNav">
+                    <a href="index.html">Home</a>
+                    <a href="properties.html" class="active">Properties</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="about.html">About</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+
+                <div class="header-right">
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                    <a class="phone" href="tel:1-800-555-4321">📞
+                        1-800-555-4321</a>
+                    <button class="icon-btn" aria-label="Account">👤</button>
+                    <button class="burger" id="burgerBtn"
+                        aria-label="Menu">☰</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="container page-body">
+
+            <section class="search-bar card">
+                <div class="search-row">
+                    <div class="search-field grow">
+                        <input type="text" placeholder="Keyword">
+                    </div>
+                    <div class="search-field select-field">
+                        <select><option>All Main Locations</option><option>Coral
+                                Gables</option><option>Hollywood</option><option>Pinecrest</option></select>
+                    </div>
+                    <div class="search-field select-field">
+                        <select><option>All Status</option><option>For
+                                Sale</option><option>For Rent</option></select>
+                    </div>
+                    <div class="search-field select-field">
+                        <select><option>All Types</option><option>Single
+                                Family</option><option>Apartment</option><option>Villa</option></select>
+                    </div>
+                    <button class="btn btn-primary search-btn"><i
+                            class="fas fa-search"></i> Search</button>
+                </div>
+
+            </section>
+
+            <section class="gallery card">
+                <div class="gallery-hero"
+                    style="background-image: url('bg.jpg'); background-size: cover; background-position: center; height: 500px; justify-content: center; align-items: center;">
+
+                    <div class="gallery-info"
+                        style="max-width: 800px; text-align: center;">
+                        <h1
+                            style="font-size: 48px; margin-bottom: 16px;">Property
+                            Gallery</h1>
+                        <p
+                            style="font-size: 18px; margin-bottom: 30px; font-weight: 500; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Explore
+                            our exclusive collection of luxury properties,
+                            stunning villas, and modern apartments designed for
+                            your lifestyle.</p>
+                        <button class="btn btn-primary"
+                            style="font-size: 16px; padding: 14px 30px;">Discover
+                            Collection</button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ================= PROPERTIES LIST ================= -->
+            <section class="properties-container">
+
+                <!-- Layout Header -->
+                <div class="properties-header">
+                    <div class="ph-left">
+                        <h2>Properties List Layout</h2>
+                        <p><strong>1 to 6</strong> out of <strong>10</strong>
+                            properties</p>
+                    </div>
+                    <div class="ph-right">
+                        <div class="ph-sort">
+                            <label>Sort By:</label>
+                            <select>
+                                <option>Date - New to Old</option>
+                                <option>Date - Old to New</option>
+                                <option>Price - High to Low</option>
+                                <option>Price - Low to High</option>
+                            </select>
+                        </div>
+                        <div class="ph-toggles">
+                            <button id="viewGrid" class="view-toggle"
+                                aria-label="Grid View"><i
+                                    class="fas fa-th-large"></i></button>
+                            <button id="viewList" class="view-toggle active"
+                                aria-label="List View"><i
+                                    class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Properties Grid/List -->
+                <div id="propertiesView" class="list-view">
+
+                    <!-- Card 1 -->
+                    <div class="property-card">
+                        <div class="property-thumb placeholder-bg"
+                            style="background-color: #DCEBFB;">
+                            <div class="gallery-tags">
+                                <span class="tag tag-sale">For Sale</span>
+                                <span class="tag tag-featured"
+                                    style="background: #20A4F3; color: white;">Featured</span>
+                                <span class="tag tag-hot"
+                                    style="background: #EF5350; color: white;">Hot</span>
+                            </div>
+                            <button class="fav" aria-label="Save">♡</button>
+
+                            <div class="media-icons">
+                                <button class="media-icon camera-btn"><i
+                                        class="fas fa-camera"></i>
+                                    <span>6</span></button>
+                                <button class="media-icon video-btn"><i
+                                        class="fas fa-play"></i>
+                                    <span>1</span></button>
+                            </div>
+                        </div>
+                        <div class="property-body">
+                            <div class="pb-main">
+                                <div class="pb-details">
+                                    <div class="build-year"
+                                        style="font-weight: 700; font-size: 12px; margin-bottom: 8px;">Build
+                                        2018</div>
+                                    <h4>Home in Merrick Way</h4>
+                                    <div class="addr"><i
+                                            class="fa-solid fa-map-marker-alt"></i>
+                                        Merrick Way, Miami, FL 33134, USA</div>
+                                    <div class="property-meta">
+                                        <span><i class="fa-solid fa-bed"></i>
+                                            3</span>
+                                        <span><i class="fa-solid fa-bath"></i>
+                                            3</span>
+                                        <span><i
+                                                class="fa-solid fa-ruler-combined"></i>
+                                            4300 sq ft</span>
+                                    </div>
+                                    <div class="property-added">Added: June 15,
+                                        2022</div>
+                                </div>
+                                <div class="price-action">
+                                    <div class="property-price">$540,000</div>
+                                    <div class="actions">
+                                        <button aria-label="Compare"><i
+                                                class="far fa-heart"></i></button>
+                                        <button aria-label="Share"><i
+                                                class="fas fa-exchange-alt"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="property-card">
+                        <div class="property-thumb placeholder-bg"
+                            style="background-color: #D6F0E4;">
+                            <div class="gallery-tags">
+                                <span class="tag tag-sale">For Sale</span>
+                                <span class="tag tag-featured"
+                                    style="background: #20A4F3; color: white;">Featured</span>
+                            </div>
+                            <button class="fav" aria-label="Save">♡</button>
+
+                            <div class="media-icons">
+                                <button class="media-icon camera-btn"><i
+                                        class="fas fa-camera"></i>
+                                    <span>4</span></button>
+                                <button class="media-icon video-btn"><i
+                                        class="fas fa-play"></i>
+                                    <span>1</span></button>
+                            </div>
+                        </div>
+                        <div class="property-body">
+                            <div class="pb-main">
+                                <div class="pb-details">
+                                    <div class="build-year"
+                                        style="font-weight: 700; font-size: 12px; margin-bottom: 8px;">Build
+                                        2019</div>
+                                    <h4>Villa in Coral Gables</h4>
+                                    <div class="addr"><i
+                                            class="fa-solid fa-map-marker-alt"></i>
+                                        Deering Bay Drive, Coral Gables, FL
+                                        33158, USA</div>
+                                    <div class="property-meta">
+                                        <span><i class="fa-solid fa-bed"></i>
+                                            3</span>
+                                        <span><i class="fa-solid fa-bath"></i>
+                                            3.5</span>
+                                        <span><i
+                                                class="fa-solid fa-ruler-combined"></i>
+                                            3500 sq ft</span>
+                                    </div>
+                                    <div class="property-added">Added: June 14,
+                                        2022</div>
+                                </div>
+                                <div class="price-action">
+                                    <div class="property-price">$825,000</div>
+                                    <div class="actions">
+                                        <button aria-label="Compare"><i
+                                                class="far fa-heart"></i></button>
+                                        <button aria-label="Share"><i
+                                                class="fas fa-exchange-alt"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <!-- ================= MODALS ================= -->
+        <div id="mediaModal" class="media-modal"
+            style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center;">
+            <div class="media-modal-content"
+                style="position: relative; width: 90%; max-width: 900px;">
+                <button class="modal-close" id="closeModal"
+                    style="position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff; font-size: 32px; cursor: pointer;">&times;</button>
+
+                <!-- Image Gallery specific -->
+                <div id="modalGallery"
+                    style="display: none; position: relative;">
+                    <button class="gallery-arrow left" id="modalPrev"
+                        style="position: absolute; left: -20px; top: 50%; transform: translateY(-50%);">‹</button>
+                    <button class="gallery-arrow right" id="modalNext"
+                        style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%);">›</button>
+                    <div id="modalImage" class="placeholder-bg"
+                        style="width: 100%; height: 60vh; background-size: cover; background-position: center; border-radius: var(--radius-lg);"></div>
+                </div>
+
+                <!-- Video specific -->
+                <div id="modalVideo"
+                    style="display: none; width: 100%; height: 60vh; background: #000; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                    <div style="color: #fff; text-align: center;">
+                        <i class="fas fa-play-circle"
+                            style="font-size: 64px; color: var(--blue); margin-bottom: 20px;"></i>
+                        <h2>Video Tour</h2>
+                        <p>Placeholder for embedded video iframe.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="site-footer">
+            <div class="container footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo light">
+                        <span class="logo-mark"><svg width="30" height="30"
+                                viewBox="0 0 34 34" fill="none"><path
+                                    d="M17 3 3 14v17h9V21h10v10h9V14L17 3Z"
+                                    fill="#2F8AE0" /></svg></span>
+                        <span class="logo-text">REAL<br>HOMES</span>
+                    </a>
+                    <p>Experience the epitome of flexibility and empower your
+                        real estate
+                        ambitions with our bespoke ULTRA theme.</p>
+                    <p>Effortlessly adapt our comprehensive suite of components
+                        to align
+                        with your unique property listing goals.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">Properties Listing</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-newsletter">
+                    <p>Need Help?</p>
+                    <div class="footer-search">
+                        <input type="email" placeholder="Enter your email">
+                        <button class="btn btn-primary">Send</button>
+                    </div>
+                    <div class="footer-contacts">
+                        <span>📞 1-800-555-4321</span>
+                        <span>📠 1-800-555-4321</span>
+                        <span>✉ hello@yoursite.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container footer-bottom">
+                <span>© 2026 All rights reserved.</span>
+                <span>Designed by Inspiry Themes</span>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

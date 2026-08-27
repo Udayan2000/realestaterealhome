@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Real Homes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .blog-header {
+        margin-bottom: 35px;
+      }
+      .blog-breadcrumbs {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      .blog-breadcrumbs a {
+        color: var(--navy);
+      }
+      .blog-breadcrumbs span.sep {
+        color: var(--muted);
+        margin: 0 4px;
+      }
+      .blog-breadcrumbs span.current {
+        color: var(--blue);
+      }
+      .blog-title {
+        font-size: 38px;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+      .blog-subtitle {
+        color: var(--muted);
+        font-size: 15px;
+        margin: 0;
+      }
+      
+      .blog-post-card {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin-bottom: 40px;
+        box-shadow: var(--shadow);
+      }
+      .blog-post-img-wrap {
+        height: 400px;
+        position: relative;
+      }
+      .blog-post-author {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #fff;
+        z-index: 2;
+      }
+      .blog-post-author .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+      }
+      .blog-post-author span {
+        font-weight: 600;
+        font-size: 14px;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      }
+      
+      .blog-post-content {
+        padding: 30px;
+      }
+      .blog-post-meta {
+        display: flex;
+        gap: 25px;
+        font-size: 13.5px;
+        color: var(--muted);
+        margin-bottom: 16px;
+        font-weight: 600;
+      }
+      .blog-post-meta span i {
+        color: var(--blue);
+        margin-right: 6px;
+      }
+      .blog-post-meta span.category {
+        color: var(--blue);
+      }
+      .blog-post-title {
+        font-size: 26px;
+        margin-bottom: 16px;
+        line-height: 1.4;
+      }
+      .blog-post-excerpt {
+        line-height: 1.8;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .blog-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+      }
+      .blog-pagination button {
+        height: 40px;
+        border: none;
+        background: var(--blue-pale);
+        color: var(--blue);
+        font-weight: 700;
+        font-size: 15px;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      .blog-pagination button.page-num {
+        width: 40px;
+        border-radius: 50%;
+      }
+      .blog-pagination button.page-next {
+        padding: 0 20px;
+        border-radius: 20px;
+      }
+      .blog-pagination button.active, .blog-pagination button:hover {
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .sidebar-widget {
+        padding: 30px;
+        margin-bottom: 30px;
+      }
+      .sidebar-title {
+        font-size: 17px;
+        margin-bottom: 22px;
+        padding: 0;
+      }
+      
+      .widget-search {
+        display: flex;
+        gap: 12px;
+      }
+      .widget-search input {
+        flex: 1;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 16px;
+        outline: none;
+        background: #fff;
+      }
+      .widget-search input:focus {
+        border-color: var(--blue);
+      }
+      .widget-search button {
+        padding: 12px 24px;
+        border-radius: 8px;
+      }
+
+      .widget-recent-posts ul {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .widget-recent-posts li {
+        display: flex;
+        gap: 12px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.5;
+      }
+      .widget-recent-posts li span.dash {
+        color: var(--blue);
+        font-weight: 800;
+      }
+      .widget-recent-posts li a:hover {
+        color: var(--blue);
+      }
+
+      .widget-agents {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .widget-agent-card {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+      .widget-agent-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .widget-agent-info h4 {
+        margin-bottom: 6px;
+        font-size: 16px;
+      }
+      .widget-agent-info div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12.5px;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+      .widget-agent-info div i {
+        color: var(--blue);
+        width: 14px;
+      }
+
+      .widget-property-types {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 12px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .widget-property-types div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .widget-property-types div span.dash {
+        color: var(--blue);
+        font-weight: 800;
+      }
+
+      .widget-contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .widget-input-group {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0 16px;
+        background: #fff;
+        transition: border-color 0.2s;
+      }
+      .widget-input-group:focus-within {
+        border-color: var(--blue);
+      }
+      .widget-input-group i {
+        color: var(--muted);
+        font-size: 14px;
+        width: 20px;
+      }
+      .widget-input-group input, .widget-input-group textarea {
+        border: none;
+        padding: 14px 10px;
+        outline: none;
+        width: 100%;
+        background: transparent;
+      }
+      .widget-input-group.textarea-group {
+        align-items: flex-start;
+      }
+      .widget-input-group.textarea-group i {
+        margin-top: 16px;
+      }
+      .widget-input-group textarea {
+        resize: none;
+        height: 100px;
+      }
+
+      @media (max-width: 991px) {
+        .blog-post-img-wrap { height: 300px; }
+      }
+      @media (max-width: 768px) {
+        .blog-post-img-wrap { height: 220px; }
+        .blog-post-title { font-size: 20px; }
+        .blog-post-content { padding: 20px; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M17 3 3 14v17h9V21h10v10h9V14L17 3Z" fill="#2F8AE0" /></svg>
+          </span>
+          <span class="logo-text">REAL<br>HOMES</span>
+        </a>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html">Home</a>
+          <a href="properties.html">Properties</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-right">
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+          <a class="phone" href="tel:1-800-555-4321">📞 1-800-555-4321</a>
+          <button class="icon-btn" aria-label="Account">👤</button>
+          <button class="burger" id="burgerBtn" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-body" style="padding-top: 40px;">
+      
+      <div class="blog-header">
+        <div class="blog-breadcrumbs">
+          <a href="index.html">Home</a> <span class="sep">&gt;</span> <span class="current">Blog</span>
+        </div>
+        <h1 class="blog-title">News</h1>
+        <p class="blog-subtitle">Check out market updates</p>
+      </div>
+
+      <div class="layout-grid">
+        
+        <!-- ================= MAIN COLUMN (POSTS) ================= -->
+        <div class="main-col">
+          
+          <!-- Post 1 -->
+          <article class="card blog-post-card">
+            <div class="blog-post-img-wrap placeholder-bg">
+              <div class="blog-post-author">
+                <div class="avatar placeholder-bg-alt"></div>
+                <span>by John Doe</span>
+              </div>
+            </div>
+            <div class="blog-post-content">
+              <div class="blog-post-meta">
+                <span><i class="far fa-calendar-alt"></i> June 15, 2022</span>
+                <span class="category"><i class="far fa-folder"></i> Market Trends</span>
+              </div>
+              <h2 class="blog-post-title"><a href="#">As The Real Estate Market Heats Up, Here's How First-time Buyers Can Keep Their Cool</a></h2>
+              <p class="blog-post-excerpt">
+                Authoritatively disintermediate progressive innovation before high-payoff metrics. Intrinsicly generate sticky services without B2B e-services. Competently revolutionize parallel applications with backward-compatible schemas. Completely leverage with integrated outsourcing for superior deliverables.
+              </p>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="card blog-post-card">
+            <div class="blog-post-img-wrap placeholder-bg-alt">
+              <div class="blog-post-author">
+                <div class="avatar placeholder-bg"></div>
+                <span>by John Doe</span>
+              </div>
+            </div>
+            <div class="blog-post-content">
+              <div class="blog-post-meta">
+                <span><i class="far fa-calendar-alt"></i> June 15, 2022</span>
+                <span class="category"><i class="far fa-folder"></i> Tips</span>
+              </div>
+              <h2 class="blog-post-title"><a href="#">Land Trading Grows Hotter, Simple Steps For Early Entrants To Avoid Stressful Mistakes</a></h2>
+              <p class="blog-post-excerpt">
+                Conveniently harness enterprise portals via revolutionary platforms. Monotonectally actualize law-end niche markets versus ubiquitous core competencies. Proactively actualize process-centric methodologies after process-centric mindshare.
+              </p>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="card blog-post-card">
+            <div class="blog-post-img-wrap placeholder-bg" style="background: linear-gradient(135deg, #2c3e50, #34495e);">
+              <div class="blog-post-author">
+                <div class="avatar placeholder-bg-alt"></div>
+                <span>by John Doe</span>
+              </div>
+            </div>
+            <div class="blog-post-content">
+              <div class="blog-post-meta">
+                <span><i class="far fa-calendar-alt"></i> June 12, 2022</span>
+                <span class="category"><i class="far fa-folder"></i> Market Trends</span>
+              </div>
+              <h2 class="blog-post-title"><a href="#">Here's How First-time Buyers Can Keep Their Cool As The Real Estate Market Heats Up</a></h2>
+              <p class="blog-post-excerpt">
+                Uniquely customize future-proof niche markets via worldwide users. Proactively negotiate user-centric schemas after fully researched bandwidth. Intrinsicly actualize client-centric resources before customized products.
+              </p>
+            </div>
+          </article>
+
+          <!-- Pagination -->
+          <div class="blog-pagination">
+            <button class="page-num active">1</button>
+            <button class="page-num">2</button>
+            <button class="page-next">Next &rsaquo;</button>
+          </div>
+
+        </div>
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="side-col">
+          
+          <!-- Search Widget -->
+          <div class="card sidebar-widget">
+            <h4 class="sidebar-title">Search</h4>
+            <div class="widget-search">
+              <input type="text" placeholder="Search">
+              <button class="btn btn-primary">Search</button>
+            </div>
+          </div>
+
+          <!-- Recent Posts Widget -->
+          <div class="card sidebar-widget">
+            <h4 class="sidebar-title">Recent Posts</h4>
+            <div class="widget-recent-posts">
+              <ul>
+                <li>
+                  <span class="dash">-</span>
+                  <a href="#">As The Real Estate Market Heats Up, Here's How First-Time Buyers Can Keep Their Cool</a>
+                </li>
+                <li>
+                  <span class="dash">-</span>
+                  <a href="#">Land Trading Grows Hotter, Simple Steps For Early Entrants To Avoid Stressful Mistakes</a>
+                </li>
+                <li>
+                  <span class="dash">-</span>
+                  <a href="#">Here's How First-Time Buyers Can Keep Their Cool As The Real Estate Market Heats Up</a>
+                </li>
+                <li>
+                  <span class="dash">-</span>
+                  <a href="#">Dynamically Brandweb Corporate Leadership Via B2C Universitates</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Agents Widget -->
+          <div class="card sidebar-widget">
+            <h4 class="sidebar-title">Agents</h4>
+            <div class="widget-agents">
+              
+              <div class="widget-agent-card">
+                <div class="widget-agent-avatar placeholder-bg-alt"></div>
+                <div class="widget-agent-info">
+                  <h4>Nathan James</h4>
+                  <div><i class="far fa-envelope"></i> robot@inspirythemes.com</div>
+                  <div><i class="fas fa-phone-alt"></i> 1-234-456-7890</div>
+                </div>
+              </div>
+
+              <div class="widget-agent-card">
+                <div class="widget-agent-avatar placeholder-bg"></div>
+                <div class="widget-agent-info">
+                  <h4>Melissa William</h4>
+                  <div><i class="far fa-envelope"></i> robot@inspirythemes.com</div>
+                  <div><i class="fas fa-phone-alt"></i> 1-245-456-7890</div>
+                </div>
+              </div>
+
+              <div class="widget-agent-card">
+                <div class="widget-agent-avatar placeholder-bg-alt"></div>
+                <div class="widget-agent-info">
+                  <h4>Alice Brian</h4>
+                  <div><i class="far fa-envelope"></i> robot@inspirythemes.com</div>
+                  <div><i class="fas fa-phone-alt"></i> 1-234-456-7891</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Property Types Widget -->
+          <div class="card sidebar-widget">
+            <h4 class="sidebar-title">Property Types</h4>
+            <div class="widget-property-types">
+              <div><span class="dash">-</span> Apartment</div>
+              <div><span class="dash">-</span> Apartment Building</div>
+              <div><span class="dash">-</span> Office</div>
+              <div><span class="dash">-</span> Shop</div>
+              <div><span class="dash">-</span> Single Family</div>
+              <div><span class="dash">-</span> Villa</div>
+            </div>
+          </div>
+
+          <!-- Featured Properties Widget -->
+          <div class="card sidebar-widget" style="padding-bottom: 20px;">
+            <h4 class="sidebar-title">Featured Properties</h4>
+            
+            <div style="background: var(--bg); padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                <h4 style="font-size: 15px; margin-bottom: 6px;">Home in Merrick Way</h4>
+                <div style="font-size: 12.5px; color: var(--muted); margin-bottom: 16px;"><i class="fas fa-map-marker-alt" style="color: var(--blue); margin-right: 4px;"></i> Merrick Way, Miami, FL 33134, USA</div>
+                
+                <div class="placeholder-bg" style="height: 180px; border-radius: 8px; position: relative;">
+                    <div style="position: absolute; top: 12px; left: 12px; display: flex; gap: 6px;">
+                        <span style="background: #fff; color: var(--navy); padding: 4px 10px; font-size: 11px; font-weight: 800; border-radius: 4px;">For Sale</span>
+                        <span style="background: var(--blue); color: #fff; padding: 4px 10px; font-size: 11px; font-weight: 800; border-radius: 4px;">Featured</span>
+                        <span style="background: var(--orange); color: #fff; padding: 4px 10px; font-size: 11px; font-weight: 800; border-radius: 4px;">Hot</span>
+                    </div>
+                    <div style="position: absolute; bottom: 12px; left: 12px; color: #fff; font-weight: 800; font-size: 20px; text-shadow: 0 2px 6px rgba(0,0,0,0.5);">$540,000</div>
+                    <div style="position: absolute; bottom: 12px; right: 12px; display: flex; gap: 8px;">
+                        <button style="width: 32px; height: 32px; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; color: #fff; font-size: 13px; cursor: pointer;"><i class="far fa-heart"></i></button>
+                        <button style="width: 32px; height: 32px; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; color: #fff; font-size: 13px; cursor: pointer;"><i class="fas fa-exchange-alt"></i></button>
+                    </div>
+                    
+                    <button style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); width: 28px; height: 28px; background: #fff; border: none; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.2); cursor: pointer;"><i class="fas fa-chevron-left" style="font-size: 12px; color: var(--navy);"></i></button>
+                    <button style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); width: 28px; height: 28px; background: var(--blue); border: none; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.2); color: #fff; cursor: pointer;"><i class="fas fa-chevron-right" style="font-size: 12px;"></i></button>
+                </div>
+            </div>
+            
+            <!-- Slider Dots -->
+            <div style="display: flex; justify-content: center; gap: 8px;">
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--blue);"></div>
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--border);"></div>
+            </div>
+          </div>
+
+          <!-- Contact Us Widget -->
+          <div class="card sidebar-widget">
+            <h4 class="sidebar-title">Contact Us</h4>
+            <form class="widget-contact-form" onsubmit="event.preventDefault();">
+              <div class="widget-input-group">
+                <i class="far fa-user"></i>
+                <input type="text" placeholder="Name" required>
+              </div>
+              <div class="widget-input-group">
+                <i class="far fa-envelope"></i>
+                <input type="email" placeholder="Email" required>
+              </div>
+              <div class="widget-input-group">
+                <i class="fas fa-phone-alt"></i>
+                <input type="tel" placeholder="Phone Number" required>
+              </div>
+              <div class="widget-input-group textarea-group">
+                <i class="far fa-comment-alt"></i>
+                <textarea placeholder="Message" required></textarea>
+              </div>
+              
+              <label class="gdpr" style="margin-top: 5px; align-items: flex-start; gap: 10px;">
+                <input type="checkbox" required style="margin-top: 4px;"> 
+                <div>
+                  <strong style="color: var(--navy); display: block; margin-bottom: 2px;">GDPR Agreement *</strong>
+                  <small style="line-height: 1.5;">I consent to having this website store my submitted information so they can respond to my inquiry.</small>
+                </div>
+              </label>
+              
+              <button type="submit" class="btn btn-primary" style="margin-top: 10px; width: 100%;">Send Message</button>
+            </form>
+          </div>
+
+        </aside>
+      </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo light">
+            <span class="logo-mark"><svg width="30" height="30" viewBox="0 0 34 34" fill="none"><path d="M17 3 3 14v17h9V21h10v10h9V14L17 3Z" fill="#2F8AE0" /></svg></span>
+            <span class="logo-text">REAL<br>HOMES</span>
+          </a>
+          <p>Experience the epitome of flexibility and empower your real estate ambitions with our bespoke ULTRA theme.</p>
+          <p>Effortlessly adapt our comprehensive suite of components to align with your unique property listing goals.</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="properties.html">Properties Listing</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-newsletter">
+          <p>Need Help?</p>
+          <div class="footer-search">
+            <input type="email" placeholder="Enter your email">
+            <button class="btn btn-primary">Send</button>
+          </div>
+          <div class="footer-contacts">
+            <span>📞 1-800-555-4321</span>
+            <span>📠 1-800-555-4321</span>
+            <span>✉ hello@yoursite.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 All rights reserved.</span>
+        <span>Designed by Inspiry Themes</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

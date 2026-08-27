@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home in Coral Gables | Real Homes</title>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path
+                d="M17 3 3 14v17h9V21h10v10h9V14L17 3Z" fill="#2F8AE0" /></svg>
+          </span>
+          <span class="logo-text">REAL<br>HOMES</span>
+        </a>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html" class="active">Home</a>
+          <a href="properties.html">Properties</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-right">
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Instagram"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+          <a class="phone" href="tel:1-800-555-4321">📞 1-800-555-4321</a>
+          <button class="icon-btn" aria-label="Account">👤</button>
+          <button class="burger" id="burgerBtn" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-body">
+
+      <!-- ================= SEARCH BAR ================= -->
+      <section class="search-bar card">
+        <div class="search-row">
+          <div class="search-field grow">
+            <input type="text" placeholder="Keyword">
+          </div>
+          <div class="search-field select-field">
+            <select><option>All Main Locations</option><option>Coral
+                Gables</option><option>Hollywood</option><option>Pinecrest</option></select>
+          </div>
+          <div class="search-field select-field">
+            <select><option>All Status</option><option>For
+                Sale</option><option>For Rent</option></select>
+          </div>
+          <div class="search-field select-field">
+            <select><option>All Types</option><option>Single
+                Family</option><option>Apartment</option><option>Villa</option></select>
+          </div>
+          <button class="btn btn-primary search-btn"><i
+              class="fas fa-search"></i> Search</button>
+        </div>
+
+      </section>
+
+      <div class="layout-grid">
+        <!-- ================= MAIN COLUMN ================= -->
+        <div class="main-col">
+
+          <!-- GALLERY -->
+          <section class="gallery card">
+            <div class="gallery-hero placeholder-bg" id="heroImage">
+              <button class="gallery-arrow left" id="prevImg"
+                aria-label="Previous image">‹</button>
+              <button class="gallery-arrow right" id="nextImg"
+                aria-label="Next image">›</button>
+
+              <div class="gallery-tags">
+                <span class="tag tag-sale">For Sale</span>
+                <span class="tag tag-type">Single Family</span>
+              </div>
+
+              <div class="gallery-info">
+                <h1 id="propTitle">Home in Coral Gables</h1>
+                <div class="price" id="propPrice">$850,000</div>
+                <div class="address"><i class="fas fa-map-marker-alt"></i>
+                  Jeronimo Drive, Coral Gables, FL 33146, USA</div>
+              </div>
+
+              <div class="gallery-actions">
+                <button aria-label="Save"><i class="far fa-heart"></i></button>
+                <button aria-label="Share"><i
+                    class="fas fa-share-alt"></i></button>
+              </div>
+            </div>
+
+            <div class="thumb-row">
+              <button class="thumb placeholder-bg active" data-img="1"></button>
+              <button class="thumb placeholder-bg" data-img="2"></button>
+              <button class="thumb placeholder-bg" data-img="3"></button>
+              <div class="thumb-count"><i class="fas fa-images"></i> <span
+                  id="photoCount">3</span><br><small>Photos</small></div>
+            </div>
+          </section>
+
+
+
+          <!-- FLOOR PLANS -->
+          <section class="block">
+            <h2>Floor Plans</h2>
+            <div class="floorplan-tabs" id="floorplanTabs">
+              <button class="fp-tab active" data-plan="1br"><i
+                  class="fa-solid fa-bed"></i>1 Bedroom Apartment</button>
+              <button class="fp-tab" data-plan="2br"><i
+                  class="fa-solid fa-bed"></i> 2 Bedrooms Apartment</button>
+              <button class="fp-tab" data-plan="3br"><i
+                  class="fa-solid fa-bed"></i> 3 Bedrooms Apartment</button>
+            </div>
+
+            <div class="floorplan-panel card" id="fpPanel">
+              <div class="fp-header">
+                <div>
+                  <h3 id="fpName">1 Bedroom Apartment</h3>
+                  <p class="text-muted" id="fpDesc">A walk-in closet and a
+                    bathroom with a vanity, toilet, and walk-in shower are also
+                    included in the attached bedroom.</p>
+                </div>
+                <div class="fp-price" id="fpPrice">$300</div>
+              </div>
+              <div class="fp-stats">
+                <div><small>Bedrooms</small><strong id="fpBeds"><i
+                      class="fa-solid fa-bed"></i> 1</strong></div>
+                <div><small>Bathrooms</small><strong id="fpBaths"><i
+                      class="fa-solid fa-bath"></i> 1</strong></div>
+                <div><small>Size</small><strong id="fpSize">654 sq
+                    ft</strong></div>
+              </div>
+
+              <div class="fp-drawing" id="fpDrawing">
+                <!-- SVG floor plan injected by JS -->
+              </div>
+            </div>
+          </section>
+
+          <!-- VIDEO -->
+          <section class="block">
+            <h2>Property Video</h2>
+            <div class="video-box placeholder-bg">
+              <button class="play-btn" aria-label="Play video">▶</button>
+              <span class="video-label">Video Tour</span>
+            </div>
+          </section>
+
+          <!-- MAP -->
+          <section class="block">
+            <h2>Property on Map</h2>
+            <div class="map-box placeholder-bg-alt">
+              <div class="map-toggle">
+                <button class="active">Map</button>
+                <button>Satellite</button>
+              </div>
+              <div class="map-pin">📍</div>
+              <span class="map-label">Jeronimo Drive, Coral Gables, FL</span>
+            </div>
+          </section>
+
+          <!-- SCHEDULE A TOUR -->
+          <section class="block">
+            <h2>Schedule A Tour</h2>
+            <div class="tour-box card">
+              <form class="tour-form" id="tourForm">
+                <div class="tour-inputs">
+                  <input type="date" required>
+                  <input type="time" required>
+                </div>
+                <div class="tour-toggle">
+                  <button type="button" class="active" data-mode="inperson">In
+                    Person</button>
+                  <button type="button" data-mode="video">Video Chat</button>
+                </div>
+                <div class="tour-inputs">
+                  <input type="text" placeholder="Your Name" required>
+                  <input type="tel" placeholder="Your Phone" required>
+                </div>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Message" rows="3"></textarea>
+                <button type="submit" class="btn btn-primary">Schedule</button>
+                <p class="form-msg" id="tourMsg"></p>
+              </form>
+
+              <div class="tour-side">
+                <div class="tour-image placeholder-bg"></div>
+                <h3>Discover your dream property</h3>
+                <p class="text-muted">Immerse yourself in the captivating
+                  presence of our properties. Book a personalized tour to
+                  explore their exquisite beauty and unique features of our
+                  property.</p>
+                <p class="text-muted">Our knowledgeable staff will guide you
+                  through the property, answering any questions you may
+                  have.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- MORTGAGE CALCULATOR -->
+          <section class="block">
+            <h2>Mortgage Calculator</h2>
+            <div class="mortgage-box card">
+              <div class="mortgage-grid">
+                <label class="m-field">
+                  <span>Term</span>
+                  <select id="mTerm">
+                    <option value="10">10 Years Fixed</option>
+                    <option value="15">15 Years Fixed</option>
+                    <option value="20">20 Years Fixed</option>
+                    <option value="30">30 Years Fixed</option>
+                  </select>
+                </label>
+                <label class="m-field">
+                  <span>Interest</span>
+                  <div class="input-suffix"><input type="number" id="mInterest"
+                      value="3.5" step="0.1"><em>%</em></div>
+                </label>
+                <label class="m-field">
+                  <span>Home Price</span>
+                  <div class="input-prefix"><em>$</em><input type="number"
+                      id="mPrice" value="850000" step="1000"></div>
+                </label>
+                <label class="m-field">
+                  <span>Down Payment</span>
+                  <div class="input-prefix"><em>$</em><input type="number"
+                      id="mDown" value="100000" step="1000"><span class="pct"
+                      id="mDownPct">20%</span></div>
+                </label>
+              </div>
+
+              <div class="mortgage-result">
+                <div class="donut-wrap">
+                  <svg width="150" height="150" viewBox="0 0 150 150"
+                    id="donutSvg">
+                    <circle cx="75" cy="75" r="62" class="donut-bg"></circle>
+                    <circle cx="75" cy="75" r="62" class="donut-fg"
+                      id="donutFg"></circle>
+                  </svg>
+                  <div class="donut-center">
+                    <strong id="mMonthly">$0</strong>
+                    <small>per month</small>
+                  </div>
+                </div>
+
+                <div class="mortgage-figures">
+                  <div>
+                    <small>Years Fixed</small>
+                    <strong id="mYearsOut">10</strong>
+                  </div>
+                  <div>
+                    <small>Interest</small>
+                    <strong id="mInterestOut">3.5%</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mortgage-breakdown">
+                <div><small>Principal and Interest</small><strong
+                    id="mPrincipal">$0</strong></div>
+                <div><small>Property Taxes</small><strong>$850</strong></div>
+                <div><small>Other Dues</small><strong>$425</strong></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SIMILAR PROPERTIES -->
+          <section class="block">
+            <h2>Similar Properties</h2>
+            <div class="similar-tabs" id="similarTabs">
+              <button class="active"
+                data-tab="tab-recommended">Recommended</button>
+              <button data-tab="tab-apartment">Apartment</button>
+              <button data-tab="tab-villa">Villa</button>
+              <button data-tab="tab-house">House</button>
+            </div>
+
+            <div class="similar-tab-content active" id="tab-recommended"
+              style="display: block;">
+              <div class="similar-grid">
+                <div class="property-card">
+                  <div class="property-thumb"
+                    style="background-image: url('bg.jpg'); background-size: cover; background-position: center;">
+                    <div class="gallery-tags">
+                      <span class="tag tag-sale">For Sale</span>
+                      <span class="tag tag-family">Featured</span>
+                    </div>
+                    <button class="fav" aria-label="Save">♡</button>
+                  </div>
+                  <div class="property-body">
+                    <h4>Villa in Coral Gables</h4>
+                    <div class="addr"><i class="fa-solid fa-map-marker-alt"></i>
+                      Deering Bay Drive, Coral Gables, FL</div>
+                    <div class="property-price">$825,000</div>
+                    <div class="property-meta">
+                      <span><i class="fa-solid fa-bed"></i> 5</span>
+                      <span><i class="fa-solid fa-bath"></i> 3</span>
+                      <span><i class="fa-solid fa-ruler-combined"></i> 3500 sq
+                        ft</span>
+                    </div>
+                    <div class="property-added">Added June 12, 2022</div>
+                  </div>
+                </div>
+                <div class="property-card">
+                  <div class="property-thumb"
+                    style="background-image: url('floorplanone.png'); background-size: cover; background-position: center;">
+                    <div class="gallery-tags">
+                      <span class="tag tag-sale">For Sale</span>
+                    </div>
+                    <button class="fav" aria-label="Save">♡</button>
+                  </div>
+                  <div class="property-body">
+                    <h4>Single Home at Florida 5</h4>
+                    <div class="addr"><i class="fa-solid fa-map-marker-alt"></i>
+                      Miami-Dade County, Pinecrest, FL</div>
+                    <div class="property-price">$580,000</div>
+                    <div class="property-meta">
+                      <span><i class="fa-solid fa-bed"></i> 4</span>
+                      <span><i class="fa-solid fa-bath"></i> 2</span>
+                      <span><i class="fa-solid fa-ruler-combined"></i> 2900 sq
+                        ft</span>
+                    </div>
+                    <div class="property-added">Added June 10, 2022</div>
+                  </div>
+                </div>
+                <div class="property-card">
+                  <div class="property-thumb"
+                    style="background-image: url('floorplantwo.png'); background-size: cover; background-position: center;">
+                    <div class="gallery-tags">
+                      <span class="tag tag-sale">For Sale</span>
+                      <span class="tag tag-family">Featured</span>
+                    </div>
+                    <button class="fav" aria-label="Save">♡</button>
+                  </div>
+                  <div class="property-body">
+                    <h4>Villa on Hollywood Boulevard</h4>
+                    <div class="addr"><i class="fa-solid fa-map-marker-alt"></i>
+                      Harrisons Lane, Hollywood, FL</div>
+                    <div class="property-price">$740,000</div>
+                    <div class="property-meta">
+                      <span><i class="fa-solid fa-bed"></i> 4</span>
+                      <span><i class="fa-solid fa-bath"></i> 3</span>
+                      <span><i class="fa-solid fa-ruler-combined"></i> 4500 sq
+                        ft</span>
+                    </div>
+                    <div class="property-added">Added June 8, 2022</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="similar-tab-content" id="tab-apartment"
+              style="display: none;">
+              <div class="similar-grid">
+                <div class="property-card">
+                  <div class="property-thumb"
+                    style="background-image: url('floorplanthree.png'); background-size: cover; background-position: center;">
+                    <div class="gallery-tags">
+                      <span class="tag tag-sale">For Rent</span>
+                    </div>
+                    <button class="fav" aria-label="Save">♡</button>
+                  </div>
+                  <div class="property-body">
+                    <h4>Luxury Condo with Pool</h4>
+                    <div class="addr"><i class="fa-solid fa-map-marker-alt"></i>
+                      Ocean Drive, Miami Beach, FL</div>
+                    <div class="property-price">$5,200/mo</div>
+                    <div class="property-meta">
+                      <span><i class="fa-solid fa-bed"></i> 2</span>
+                      <span><i class="fa-solid fa-bath"></i> 2.5</span>
+                      <span><i class="fa-solid fa-ruler-combined"></i> 1800 sq
+                        ft</span>
+                    </div>
+                    <div class="property-added">Added July 1, 2022</div>
+                  </div>
+                </div>
+                <div class="property-card">
+                  <div class="property-thumb"
+                    style="background-image: url('floorplantwo.png'); background-size: cover; background-position: center;">
+                    <div class="gallery-tags">
+                      <span class="tag tag-sale">For Sale</span>
+                    </div>
+                    <button class="fav" aria-label="Save">♡</button>
+                  </div>
+                  <div class="property-body">
+                    <h4>Downtown Loft Apartment</h4>
+                    <div class="addr"><i class="fa-solid fa-map-marker-alt"></i>
+                      Brickell Ave, Miami, FL</div>
+                    <div class="property-price">$850,000</div>
+                    <div class="property-meta">
+                      <span><i class="fa-solid fa-bed"></i> 1</span>
+                      <span><i class="fa-solid fa-bath"></i> 1.5</span>
+                      <span><i class="fa-solid fa-ruler-combined"></i> 1100 sq
+                        ft</span>
+                    </div>
+                    <div class="property-added">Added July 20, 2022</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="similar-tab-content" id="tab-villa"
+              style="display: none;">
+              <div class="similar-grid">
+                <div class="property-card">
+                  <div class="property-thumb"
+                    style="background-image: url('floorplanone.png'); background-size: cover; background-position: center;">
+                    <div class="gallery-tags">
+                      <span class="tag tag-sale">For Sale</span>
+                    </div>
+                    <button class="fav" aria-label="Save">♡</button>
+                  </div>
+                  <div class="property-body">
+                    <h4>Mediterranean Seaside Villa</h4>
+                    <div class="addr"><i class="fa-solid fa-map-marker-alt"></i>
+                      Star Island, Miami Beach, FL</div>
+                    <div class="property-price">$4,500,000</div>
+                    <div class="property-meta">
+                      <span><i class="fa-solid fa-bed"></i> 6</span>
+                      <span><i class="fa-solid fa-bath"></i> 7</span>
+                      <span><i class="fa-solid fa-ruler-combined"></i> 8200 sq
+                        ft</span>
+                    </div>
+                    <div class="property-added">Added August 15, 2022</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="similar-tab-content" id="tab-house"
+              style="display: none;">
+              <div class="similar-grid">
+                <div class="property-card">
+                  <div class="property-thumb"
+                    style="background-image: url('bg.jpg'); background-size: cover; background-position: center;">
+                    <div class="gallery-tags">
+                      <span class="tag tag-sale">For Sale</span>
+                    </div>
+                    <button class="fav" aria-label="Save">♡</button>
+                  </div>
+                  <div class="property-body">
+                    <h4>Smart Home in Suburbs</h4>
+                    <div class="addr"><i class="fa-solid fa-map-marker-alt"></i>
+                      Maple Street, Weston, FL</div>
+                    <div class="property-price">$950,000</div>
+                    <div class="property-meta">
+                      <span><i class="fa-solid fa-bed"></i> 4</span>
+                      <span><i class="fa-solid fa-bath"></i> 4</span>
+                      <span><i class="fa-solid fa-ruler-combined"></i> 4200 sq
+                        ft</span>
+                    </div>
+                    <div class="property-added">Added July 5, 2022</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="side-col">
+
+          <!-- AGENT 1 -->
+          <div class="agent-card card">
+            <div class="agent-top">
+              <div class="agent-avatar placeholder-bg-alt"></div>
+              <div>
+                <small>Agent</small>
+                <h4>Melissa William</h4>
+                <a href="#" class="view-listings">View My Listings</a>
+              </div>
+            </div>
+            <ul class="agent-contacts">
+              <li><span>Office</span><a
+                  href="tel:1-222-333-4444">1-222-333-4444</a></li>
+              <li><span>Mobile</span><a
+                  href="tel:1-234-456-7892">1-234-456-7892</a></li>
+              <li><span>Fax</span><a
+                  href="tel:1-333-444-5555">1-333-444-5555</a></li>
+              <li><span>WhatsApp</span><a href="#">1-222-333-4422</a></li>
+              <li><span>Email</span><a
+                  href="mailto:robot@inspirythemes.com">robot@inspirythemes.com</a></li>
+            </ul>
+
+            <form class="contact-form" data-form="agent1">
+              <input type="text" placeholder="Name" required>
+              <input type="email" placeholder="Email" required>
+              <input type="tel" placeholder="Phone" required>
+              <textarea
+                rows="3">Hello, I am interested in [Home in Coral Gables]</textarea>
+              <label class="gdpr"><input type="checkbox" required> GDPR
+                Agreement *<br></label>
+              <small>I consent to having this website store my submitted
+                information so they can respond to my inquiry.</small>
+              <button type="submit" class="btn btn-primary">Send
+                Message</button>
+              <p class="form-msg"></p>
+            </form>
+          </div>
+
+          <!-- AGENT 2 -->
+          <div class="agent-card card">
+            <div class="agent-top">
+              <div class="agent-avatar placeholder-bg-alt"></div>
+              <div>
+                <small>Agent</small>
+                <h4>John David <span class="verified"
+                    title="Verified">✔</span></h4>
+                <a href="#" class="view-listings">View My Listings</a>
+              </div>
+            </div>
+            <ul class="agent-contacts">
+              <li><span>Office</span><a
+                  href="tel:1-222-333-4444">1-222-333-4444</a></li>
+              <li><span>Mobile</span><a
+                  href="tel:1-234-456-7890">1-234-456-7890</a></li>
+              <li><span>Fax</span><a
+                  href="tel:1-333-444-5555">1-333-444-5555</a></li>
+              <li><span>WhatsApp</span><a href="#">1-234-567-8889</a></li>
+              <li><span>Email</span><a
+                  href="mailto:robot@inspirythemes.com">robot@inspirythemes.com</a></li>
+            </ul>
+
+            <form class="contact-form" data-form="agent2">
+              <input type="text" placeholder="Name" required>
+              <input type="email" placeholder="Email" required>
+              <input type="tel" placeholder="Phone" required>
+              <textarea
+                rows="3">Hello, I am interested in [Home in Coral Gables]</textarea>
+              <label class="gdpr"><input type="checkbox" required> GDPR
+                Agreement *<br><small>I consent to having this website store my
+                  submitted information so they can respond to my
+                  inquiry.</small></label>
+              <button type="submit" class="btn btn-primary">Send
+                Message</button>
+              <p class="form-msg"></p>
+            </form>
+          </div>
+
+          <!-- FEATURED PROPERTY -->
+          <div class="featured-card card">
+            <h4 class="side-title">Featured Properties</h4>
+            <div class="featured-slide placeholder-bg" id="featuredSlide">
+              <div class="gallery-tags">
+                <span class="tag tag-sale">For Sale</span>
+                <span class="tag tag-type">Featured</span>
+                <span class="tag tag-family">Family</span>
+              </div>
+              <button class="mini-nav" id="featuredNext">›</button>
+              <div class="featured-info">
+                <strong id="featTitle">Villa on Hollywood Boulevard</strong>
+                <small id="featAddr">Harrisons Lane, Hollywood, FL 33095,
+                  USA</small>
+              </div>
+            </div>
+            <div class="dots" id="featuredDots">
+              <span class="active"></span><span></span><span></span>
+            </div>
+          </div>
+
+          <!-- PROPERTY TYPES -->
+          <div class="types-card card">
+            <h4 class="side-title">Property Types</h4>
+            <ul class="types-list">
+              <li>Apartment</li>
+              <li>Apartment Building</li>
+              <li>Office</li>
+              <li>Shop</li>
+              <li>Single Family</li>
+              <li>Villa</li>
+            </ul>
+          </div>
+
+          <!-- FIND YOUR HOME -->
+          <div class="find-card card">
+            <h4 class="side-title">Find Your Home</h4>
+            <form class="find-form">
+              <div class="find-row">
+                <input type="text" placeholder="Keyword">
+                <input type="text" placeholder="Property ID">
+              </div>
+              <select><option>All Main Locations</option></select>
+              <select><option>All Status</option></select>
+              <select><option>All Types</option></select>
+              <div class="find-row">
+                <input type="text" placeholder="Min Price">
+                <input type="text" placeholder="Max Price">
+              </div>
+              <div class="find-row">
+                <select><option>All Beds</option></select>
+                <select><option>All Baths</option></select>
+              </div>
+              <div class="find-row">
+                <select><option>All Agents</option></select>
+                <select><option>All Garages</option></select>
+              </div>
+              <div class="find-row">
+                <button type="button" class="link-btn small">⚙ Advance
+                  Search</button>
+                <button type="submit"
+                  class="btn btn-primary small">Search</button>
+              </div>
+            </form>
+          </div>
+
+        </aside>
+      </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo light">
+            <span class="logo-mark"><svg width="30" height="30"
+                viewBox="0 0 34 34" fill="none"><path
+                  d="M17 3 3 14v17h9V21h10v10h9V14L17 3Z"
+                  fill="#2F8AE0" /></svg></span>
+            <span class="logo-text">REAL<br>HOMES</span>
+          </a>
+          <p>Experience the epitome of flexibility and empower your real estate
+            ambitions with our bespoke ULTRA theme.</p>
+          <p>Effortlessly adapt our comprehensive suite of components to align
+            with your unique property listing goals.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">Properties Listing</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-newsletter">
+          <p>Need Help?</p>
+          <div class="footer-search">
+            <input type="email" placeholder="Enter your email">
+            <button class="btn btn-primary">Send</button>
+          </div>
+          <div class="footer-contacts">
+            <span>📞 1-800-555-4321</span>
+            <span>📠 1-800-555-4321</span>
+            <span>✉ hello@yoursite.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 All rights reserved.</span>
+        <span>Designed by Inspiry Themes</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

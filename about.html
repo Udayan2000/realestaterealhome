@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Real Homes</title>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .about-hero {
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 40px;
+        border-radius: var(--radius-lg);
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+      }
+      .about-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, rgba(22, 38, 74, 0.7), rgba(22, 38, 74, 0.3));
+        z-index: 1;
+      }
+      .about-hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      .about-nav-container {
+    position: sticky;
+    top: 76px;
+    z-index: 90;
+    margin-bottom: 15px;
+
+      }
+      .about-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      }
+      .about-tabs {
+        display: flex;
+        gap: 30px;
+      }
+      .about-tab-link {
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--muted);
+        padding: 15px 0;
+        position: relative;
+        transition: color 0.3s;
+      }
+      .about-tab-link:hover, .about-tab-link.active {
+        color: var(--blue);
+      }
+      .about-tab-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--green); /* Green underline as per image */
+      }
+      .history-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .stat-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--blue-pale);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--blue);
+        font-size: 20px;
+      }
+      .leadership-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+      .leader-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .leader-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+      }
+      .leader-socials a {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #f5f8fc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 13px;
+        transition: all 0.2s;
+      }
+      .leader-socials a:hover {
+        background: var(--blue);
+        color: #fff;
+      }
+      .offices-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .office-tabs button {
+        border: none;
+        background: transparent;
+        padding-bottom: 15px;
+        font-weight: 700;
+        font-size: 14.5px;
+        color: var(--muted);
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s;
+      }
+      .office-tabs button.active {
+        color: var(--green);
+        border-bottom-color: var(--green);
+      }
+      .working-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .gallery-3col {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin-top: 40px;
+      }
+      
+      @media (max-width: 991px) {
+        .history-grid, .working-grid { grid-template-columns: 1fr; }
+        .leadership-grid { grid-template-columns: repeat(2, 1fr); }
+        .offices-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 768px) {
+        .leadership-grid, .gallery-3col { grid-template-columns: 1fr; }
+        .about-tabs { gap: 15px; overflow-x: auto; white-space: nowrap; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path
+                d="M17 3 3 14v17h9V21h10v10h9V14L17 3Z" fill="#2F8AE0" /></svg>
+          </span>
+          <span class="logo-text">REAL<br>HOMES</span>
+        </a>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html">Home</a>
+          <a href="properties.html">Properties</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html" class="active">About</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-right">
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Instagram"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+          <a class="phone" href="tel:1-800-555-4321">📞 1-800-555-4321</a>
+          <button class="icon-btn" aria-label="Account">👤</button>
+          <button class="burger" id="burgerBtn" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-body">
+
+      <!-- ================= HERO ================= -->
+      <section class="about-hero placeholder-bg">
+        <div class="about-hero-overlay"></div>
+        <div class="about-hero-content">
+          <div
+            style="font-size: 13px; color: #fff; margin-bottom: 10px; font-weight: 600; opacity: 0.8;">
+            Home &gt; About us
+          </div>
+          <h1
+            style="color: #fff; font-size: 46px; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">About
+            us</h1>
+        </div>
+      </section>
+
+      <!-- ================= NAV TABS ================= -->
+      <div class="about-nav-container">
+        <nav class="about-nav card">
+          <div class="about-tabs">
+            <a href="#history" class="about-tab-link active">Company History</a>
+            <a href="#leadership" class="about-tab-link">Our Leadership</a>
+            <a href="#offices" class="about-tab-link">Offices Location</a>
+            <a href="#working" class="about-tab-link">Working with Us</a>
+          </div>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span
+              style="font-weight: 600; color: var(--muted); font-size: 14px;"
+              class="hide-mobile">Got a question?</span>
+            <button class="btn btn-primary">Contact us</button>
+          </div>
+        </nav>
+      </div>
+
+      <!-- ================= HISTORY ================= -->
+      <section id="history" class="block">
+        <h2 style="margin-bottom: 30px; font-size: 26px;">Company History</h2>
+        <div class="history-grid">
+          <div class="placeholder-bg"
+            style="height: 480px; border-radius: var(--radius-lg);"></div>
+          <div>
+            <div
+              style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+              <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path
+                  d="M17 3 3 14v17h9V21h10v10h9V14L17 3Z"
+                  fill="#2F8AE0" /></svg>
+              <span
+                style="font-weight: 800; font-size: 24px; color: var(--navy); letter-spacing: 0.5px;">homepress</span>
+            </div>
+            <p
+              style="margin-bottom: 20px; font-weight: 600; color: var(--navy);">
+              At Property Real Estate Company, we believe that when it comes to
+              finding a home what's outside the front door is just as important
+              as what's behind it.
+            </p>
+            <p class="text-muted" style="margin-bottom: 20px;">
+              That's why we go beyond the typical listings, by sourcing insights
+              straight from locals and offering over 34 neighborhood map
+              overlays, to give people a deeper understanding of what living in
+              a home and neighborhood is really like.
+            </p>
+            <p class="text-muted" style="margin-bottom: 35px;">
+              We're committed to helping them discover a place where they will
+              love to live and where they will feel more connected to the
+              community and to each other. It's why we strive every day to help
+              build a more neighborly world.
+            </p>
+
+            <div
+              style="display: flex; gap: 30px; margin-bottom: 35px; flex-wrap: wrap;">
+              <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-building"></i></div>
+                <span
+                  style="font-weight: 700; color: var(--navy); font-size: 15px;">Founded
+                  in 2005</span>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                <span
+                  style="font-weight: 700; color: var(--navy); font-size: 15px;">15+
+                  Countries</span>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <span
+                  style="font-weight: 700; color: var(--navy); font-size: 15px;">2M+
+                  Users</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 15px;">
+              <span
+                style="font-weight: 600; color: var(--muted); font-size: 14px;">Follow
+                Us on:</span>
+              <div class="social-icons" style="gap: 10px;">
+                <a href="#" aria-label="Facebook"
+                  style="background: transparent; color: var(--muted); width: auto;"><i
+                    class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"
+                  style="background: transparent; color: var(--muted); width: auto;"><i
+                    class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"
+                  style="background: transparent; color: var(--muted); width: auto;"><i
+                    class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"
+                  style="background: transparent; color: var(--muted); width: auto;"><i
+                    class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= LEADERSHIP ================= -->
+      <section id="leadership" class="block">
+        <h2 style="margin-bottom: 30px; font-size: 26px;">Our Leadership</h2>
+        <div class="leadership-grid">
+
+          <!-- Leader 1 -->
+          <div class="card leader-card">
+            <div class="placeholder-bg"
+              style="height: 240px; border-radius: var(--radius-lg) var(--radius-lg) 0 0;"></div>
+            <div style="padding: 24px;">
+              <h4 style="margin-bottom: 6px; font-size: 18px;">Ryan
+                Buchanan</h4>
+              <div class="text-muted"
+                style="font-size: 13.5px; margin-bottom: 20px;">Co-Founder and
+                Executive Chairman</div>
+              <ul class="agent-contacts"
+                style="border-top: none; padding-top: 0; margin-bottom: 0;">
+                <li><span><i class="fas fa-mobile-alt"
+                      style="margin-right: 6px;"></i> Mobile</span><a
+                    href="#">(855) 234-5678</a></li>
+                <li><span><i class="fas fa-building"
+                      style="margin-right: 6px;"></i> Office</span><a
+                    href="#">(879) 822-3300</a></li>
+                
+              </ul>
+              <div class="leader-socials"
+                style="display: flex; gap: 8px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px;">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leader 2 -->
+          <div class="card leader-card">
+            <div class="placeholder-bg"
+              style="height: 240px; border-radius: var(--radius-lg) var(--radius-lg) 0 0;"></div>
+            <div style="padding: 24px;">
+              <h4 style="margin-bottom: 6px; font-size: 18px;">Jennifer
+                Martin</h4>
+              <div class="text-muted"
+                style="font-size: 13.5px; margin-bottom: 20px;">Senior Vice
+                President, Product</div>
+              <ul class="agent-contacts"
+                style="border-top: none; padding-top: 0; margin-bottom: 0;">
+                <li><span><i class="fas fa-mobile-alt"
+                      style="margin-right: 6px;"></i> Mobile</span><a
+                    href="#">(855) 234-5678</a></li>
+                <li><span><i class="fas fa-building"
+                      style="margin-right: 6px;"></i> Office</span><a
+                    href="#">(879) 822-3300</a></li>
+                
+              </ul>
+              <div class="leader-socials"
+                style="display: flex; gap: 8px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px;">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leader 3 -->
+          <div class="card leader-card">
+            <div class="placeholder-bg"
+              style="height: 240px; border-radius: var(--radius-lg) var(--radius-lg) 0 0;"></div>
+            <div style="padding: 24px;">
+              <h4 style="margin-bottom: 6px; font-size: 18px;">Nick Smith</h4>
+              <div class="text-muted"
+                style="font-size: 13.5px; margin-bottom: 20px;">Chief Technology
+                Officer</div>
+              <ul class="agent-contacts"
+                style="border-top: none; padding-top: 0; margin-bottom: 0;">
+                <li><span><i class="fas fa-mobile-alt"
+                      style="margin-right: 6px;"></i> Mobile</span><a
+                    href="#">(855) 234-5678</a></li>
+                <li><span><i class="fas fa-building"
+                      style="margin-right: 6px;"></i> Office</span><a
+                    href="#">(879) 822-3300</a></li>
+                
+              </ul>
+              <div class="leader-socials"
+                style="display: flex; gap: 8px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px;">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leader 4 -->
+          <div class="card leader-card">
+            <div class="placeholder-bg"
+              style="height: 240px; border-radius: var(--radius-lg) var(--radius-lg) 0 0;"></div>
+            <div style="padding: 24px;">
+              <h4 style="margin-bottom: 6px; font-size: 18px;">Kathleen
+                Myers</h4>
+              <div class="text-muted"
+                style="font-size: 13.5px; margin-bottom: 20px;">Chief Operating
+                Officer</div>
+              <ul class="agent-contacts"
+                style="border-top: none; padding-top: 0; margin-bottom: 0;">
+                <li><span><i class="fas fa-mobile-alt"
+                      style="margin-right: 6px;"></i> Mobile</span><a
+                    href="#">(855) 123-4567</a></li>
+                <li><span><i class="fas fa-building"
+                      style="margin-right: 6px;"></i> Office</span><a
+                    href="#">(879) 711-2299</a></li>
+                
+              </ul>
+              <div class="leader-socials"
+                style="display: flex; gap: 8px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px;">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leader 5 -->
+          <div class="card leader-card">
+            <div class="placeholder-bg"
+              style="height: 240px; border-radius: var(--radius-lg) var(--radius-lg) 0 0;"></div>
+            <div style="padding: 24px;">
+              <h4 style="margin-bottom: 6px; font-size: 18px;">Donald Boyd</h4>
+              <div class="text-muted"
+                style="font-size: 13.5px; margin-bottom: 20px;">Chief Financial
+                Officer</div>
+              <ul class="agent-contacts"
+                style="border-top: none; padding-top: 0; margin-bottom: 0;">
+                <li><span><i class="fas fa-mobile-alt"
+                      style="margin-right: 6px;"></i> Mobile</span><a
+                    href="#">(855) 234-5678</a></li>
+                <li><span><i class="fas fa-building"
+                      style="margin-right: 6px;"></i> Office</span><a
+                    href="#">(879) 822-3300</a></li>
+                
+              </ul>
+              <div class="leader-socials"
+                style="display: flex; gap: 8px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px;">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leader 6 -->
+          <div class="card leader-card">
+            <div class="placeholder-bg"
+              style="height: 240px; border-radius: var(--radius-lg) var(--radius-lg) 0 0;"></div>
+            <div style="padding: 24px;">
+              <h4 style="margin-bottom: 6px; font-size: 18px;">Amanda Baker</h4>
+              <div class="text-muted"
+                style="font-size: 13.5px; margin-bottom: 20px;">Chief Legal
+                Officer</div>
+              <ul class="agent-contacts"
+                style="border-top: none; padding-top: 0; margin-bottom: 0;">
+                <li><span><i class="fas fa-mobile-alt"
+                      style="margin-right: 6px;"></i> Mobile</span><a
+                    href="#">(855) 123-4567</a></li>
+                <li><span><i class="fas fa-building"
+                      style="margin-right: 6px;"></i> Office</span><a
+                    href="#">(879) 711-2299</a></li>
+                
+              </ul>
+              <div class="leader-socials"
+                style="display: flex; gap: 8px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px;">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= OFFICES LOCATION ================= -->
+      <section id="offices" class="block">
+        <h2 style="margin-bottom: 30px; font-size: 26px;">Offices Location</h2>
+        <div class="card offices-grid" style="overflow: hidden;">
+          <div style="padding: 50px;">
+            <div class="office-tabs"
+              style="display: flex; gap: 30px; margin-bottom: 30px; border-bottom: 1px solid var(--border);">
+              <button class="active">Headquarter</button>
+              <button>New York Office</button>
+              <button>California Office</button>
+            </div>
+            <p class="text-muted"
+              style="line-height: 1.8; margin-bottom: 30px;">
+              Real Homes is a technology-powered real estate brokerage. Our
+              agents are locals who love their city. They're obsessed with the
+              neighborhoods they serve, from their knowledge of the local
+              schools, parks, and dining options to the history of the area.
+              Find out why it's a great place to live from the people who live
+              there.
+            </p>
+            <div style="margin-bottom: 25px;">
+              <strong
+                style="display: block; font-size: 16px; color: var(--navy); margin-bottom: 8px;">Headquarters</strong>
+              <p class="text-muted" style="margin: 0;">123 Real Estate Ave,
+                Suite 100<br>Miami, FL 33131</p>
+            </div>
+            <div>
+              <a href="#"
+                style="color: var(--blue); font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 5px;">View
+                in Google Maps <i class="fas fa-arrow-right"
+                  style="font-size: 12px;"></i></a>
+            </div>
+          </div>
+          <div class="placeholder-bg-alt"
+            style="height: 100%; min-height: 450px; display: flex; align-items: center; justify-content: center; position: relative;">
+            <div
+              style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); color: #fff; padding: 5px 10px; font-size: 12px; border-radius: 4px;">Map
+              Placeholder</div>
+            <i class="fas fa-map-marker-alt"
+              style="font-size: 48px; color: var(--blue); text-shadow: 0 4px 10px rgba(0,0,0,0.2);"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= WORKING WITH US ================= -->
+      <section id="working" class="block">
+        <div class="working-grid">
+          <div class="placeholder-bg"
+            style="height: 400px; border-radius: var(--radius-lg); position: relative; overflow: hidden;">
+            <div
+              style="position: absolute; bottom: 30px; left: 30px; background: rgba(0,0,0,0.6); color: #fff; padding: 8px 20px; border-radius: 6px; font-weight: 700; font-size: 15px;">
+              Pets Friendly Office
+            </div>
+          </div>
+          <div>
+            <h2 style="margin-bottom: 25px; font-size: 26px;">Working with
+              Us</h2>
+            <p
+              style="font-weight: 700; font-size: 18px; margin-bottom: 20px; color: var(--navy); line-height: 1.5;">
+              Come be a part of a truly amazing, open, collaborative, and
+              innovative culture.
+            </p>
+            <p class="text-muted"
+              style="margin-bottom: 35px; line-height: 1.8;">
+              Our people are always striving to push the boundaries of
+              innovation, setting new standards for the real estate industry. We
+              believe that by creating an environment where our team can thrive,
+              we can better serve our clients and the communities we operate in.
+            </p>
+            <div style="display: flex; align-items: center; gap: 40px;">
+              <div>
+                <strong
+                  style="display: block; font-size: 32px; color: var(--navy); margin-bottom: 5px;">450+</strong>
+                <span
+                  style="color: var(--muted); font-size: 14px; font-weight: 600;">Professionals</span>
+              </div>
+              <button class="btn btn-primary" style="padding: 14px 28px;">All
+                Open Positions</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-3col">
+          <div class="placeholder-bg"
+            style="height: 280px; border-radius: var(--radius-lg);"></div>
+          <div class="placeholder-bg"
+            style="height: 280px; border-radius: var(--radius-lg);"></div>
+          <div class="placeholder-bg"
+            style="height: 280px; border-radius: var(--radius-lg);"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo light">
+            <span class="logo-mark"><svg width="30" height="30"
+                viewBox="0 0 34 34" fill="none"><path
+                  d="M17 3 3 14v17h9V21h10v10h9V14L17 3Z"
+                  fill="#2F8AE0" /></svg></span>
+            <span class="logo-text">REAL<br>HOMES</span>
+          </a>
+          <p>Experience the epitome of flexibility and empower your real estate
+            ambitions with our bespoke ULTRA theme.</p>
+          <p>Effortlessly adapt our comprehensive suite of components to align
+            with your unique property listing goals.</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="properties.html">Properties Listing</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-newsletter">
+          <p>Need Help?</p>
+          <div class="footer-search">
+            <input type="email" placeholder="Enter your email">
+            <button class="btn btn-primary">Send</button>
+          </div>
+          <div class="footer-contacts">
+            <span>📞 1-800-555-4321</span>
+            <span>📠 1-800-555-4321</span>
+            <span>✉ hello@yoursite.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 All rights reserved.</span>
+        <span>Designed by Inspiry Themes</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Smooth scroll for about navigation tabs
+      document.querySelectorAll('.about-tab-link').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              
+              // Update active state
+              document.querySelectorAll('.about-tab-link').forEach(link => link.classList.remove('active'));
+              this.classList.add('active');
+              
+              const targetId = this.getAttribute('href');
+              const targetSection = document.querySelector(targetId);
+              
+              if (targetSection) {
+                  // Adjust for sticky header + sticky nav height
+                  const headerOffset = 180;
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  
+                  window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth"
+                  });
+              }
+          });
+      });
+      
+      // Office tabs interactive mock
+      const officeTabs = document.querySelectorAll('.office-tabs button');
+      officeTabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+              officeTabs.forEach(t => t.classList.remove('active'));
+              tab.classList.add('active');
+          });
+      });
+    </script>
+  </body>
+</html>
