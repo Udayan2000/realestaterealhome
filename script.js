@@ -1,11 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ============ MOBILE NAV ============ */
-  const burger = document.getElementById('burgerBtn');
-  const nav = document.getElementById('mainNav');
-  burger?.addEventListener('click', () => {
-    nav.classList.toggle('open');
-    nav.style.display = nav.classList.contains('open') ? 'flex' : 'none';
+  /* ============ OFF-CANVAS RESPONSIVE SIDEBAR ============ */
+  const burgerBtn = document.getElementById('burgerBtn');
+  const sidebar = document.getElementById('mobileSidebar');
+  const backdrop = document.getElementById('sidebarBackdrop');
+  const closeBtn = document.getElementById('sidebarCloseBtn');
+
+  function openSidebar() {
+    sidebar?.classList.add('open');
+    backdrop?.classList.add('open');
+    document.body.classList.add('sidebar-open');
+  }
+
+  function closeSidebar() {
+    sidebar?.classList.remove('open');
+    backdrop?.classList.remove('open');
+    document.body.classList.remove('sidebar-open');
+  }
+
+  burgerBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openSidebar();
+  });
+
+  closeBtn?.addEventListener('click', closeSidebar);
+  backdrop?.addEventListener('click', closeSidebar);
+
+  // Close sidebar on pressing Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar?.classList.contains('open')) {
+      closeSidebar();
+    }
+  });
+
+  // Close sidebar when clicking any navigation link inside
+  sidebar?.querySelectorAll('.sidebar-nav a')?.forEach(link => {
+    link.addEventListener('click', () => {
+      closeSidebar();
+    });
   });
 
   /* ============ GALLERY SLIDER ============ */
@@ -385,16 +417,55 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
-});
-  /* ============ MAIN CONTACT FORM ============ */
-  const mainContactForm = document.getElementById('mainContactForm');
-  if (mainContactForm) {
-    mainContactForm.addEventListener('submit', (e) => {
+
+  /* ============ ABOUT TABS HORIZONTAL SCROLL & ARROWS ============ */
+  const aboutTabs = document.getElementById('aboutTabs');
+  const tabLeftBtn = document.getElementById('aboutTabLeft');
+  const tabRightBtn = document.getElementById('aboutTabRight');
+
+  if (aboutTabs && tabLeftBtn && tabRightBtn) {
+    tabLeftBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      const msg = document.getElementById('mainContactMsg');
-      if (msg) {
-        msg.textContent = 'Thanks for reaching out! We will get back to you shortly.';
-      }
-      mainContactForm.reset();
+      aboutTabs.scrollBy({ left: -140, behavior: 'smooth' });
     });
+
+    tabRightBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      aboutTabs.scrollBy({ left: 140, behavior: 'smooth' });
+    });
+
+    function updateTabArrows() {
+      const maxScroll = aboutTabs.scrollWidth - aboutTabs.clientWidth;
+      if (maxScroll <= 0) {
+        tabLeftBtn.style.opacity = '0.35';
+        tabLeftBtn.style.pointerEvents = 'none';
+        tabRightBtn.style.opacity = '0.35';
+        tabRightBtn.style.pointerEvents = 'none';
+        return;
+      }
+      tabLeftBtn.style.opacity = aboutTabs.scrollLeft <= 5 ? '0.35' : '1';
+      tabLeftBtn.style.pointerEvents = aboutTabs.scrollLeft <= 5 ? 'none' : 'auto';
+      
+      tabRightBtn.style.opacity = (aboutTabs.scrollLeft >= maxScroll - 5) ? '0.35' : '1';
+      tabRightBtn.style.pointerEvents = (aboutTabs.scrollLeft >= maxScroll - 5) ? 'none' : 'auto';
+    }
+
+    aboutTabs.addEventListener('scroll', updateTabArrows);
+    window.addEventListener('resize', updateTabArrows);
+    setTimeout(updateTabArrows, 100);
   }
+});
+
+/* ============ MAIN CONTACT FORM ============ */
+const mainContactForm = document.getElementById('mainContactForm');
+if (mainContactForm) {
+  mainContactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const msg = document.getElementById('mainContactMsg');
+    if (msg) {
+      msg.textContent = 'Thanks for reaching out! We will get back to you shortly.';
+    }
+    mainContactForm.reset();
+  });
+}
+
