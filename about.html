@@ -10,157 +10,6 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-      .about-hero {
-        height: 350px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0 40px;
-        border-radius: var(--radius-lg);
-        margin-bottom: 30px;
-        position: relative;
-        overflow: hidden;
-      }
-      .about-hero-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to right, rgba(22, 38, 74, 0.7), rgba(22, 38, 74, 0.3));
-        z-index: 1;
-      }
-      .about-hero-content {
-        position: relative;
-        z-index: 2;
-      }
-      .about-nav-container {
-    position: sticky;
-    top: 76px;
-    z-index: 90;
-    margin-bottom: 15px;
-
-      }
-      .about-nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-      }
-      .about-tabs {
-        display: flex;
-        gap: 30px;
-      }
-      .about-tab-link {
-        font-weight: 700;
-        font-size: 14px;
-        color: var(--muted);
-        padding: 15px 0;
-        position: relative;
-        transition: color 0.3s;
-      }
-      .about-tab-link:hover, .about-tab-link.active {
-        color: var(--blue);
-      }
-      .about-tab-link.active::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: var(--green); /* Green underline as per image */
-      }
-      .history-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        align-items: center;
-      }
-      .stat-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .stat-icon {
-        width: 44px;
-        height: 44px;
-        background: var(--blue-pale);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--blue);
-        font-size: 20px;
-      }
-      .leadership-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-      }
-      .leader-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
-      .leader-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow);
-      }
-      .leader-socials a {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: #f5f8fc;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--muted);
-        font-size: 13px;
-        transition: all 0.2s;
-      }
-      .leader-socials a:hover {
-        background: var(--blue);
-        color: #fff;
-      }
-      .offices-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-      .office-tabs button {
-        border: none;
-        background: transparent;
-        padding-bottom: 15px;
-        font-weight: 700;
-        font-size: 14.5px;
-        color: var(--muted);
-        border-bottom: 2px solid transparent;
-        transition: all 0.3s;
-      }
-      .office-tabs button.active {
-        color: var(--green);
-        border-bottom-color: var(--green);
-      }
-      .working-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        align-items: center;
-      }
-      .gallery-3col {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        margin-top: 40px;
-      }
-      
-      @media (max-width: 991px) {
-        .history-grid, .working-grid { grid-template-columns: 1fr; }
-        .leadership-grid { grid-template-columns: repeat(2, 1fr); }
-        .offices-grid { grid-template-columns: 1fr; }
-      }
-      @media (max-width: 768px) {
-        .leadership-grid, .gallery-3col { grid-template-columns: 1fr; }
-        .about-tabs { gap: 15px; overflow-x: auto; white-space: nowrap; }
-      }
-    </style>
   </head>
   <body>
 
@@ -195,10 +44,74 @@
           </div>
           <a class="phone" href="tel:1-800-555-4321">📞 1-800-555-4321</a>
           <button class="icon-btn" aria-label="Account">👤</button>
-          <button class="burger" id="burgerBtn" aria-label="Menu">☰</button>
+          <button class="burger" id="burgerBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
         </div>
       </div>
     </header>
+
+    <!-- ================= OFF-CANVAS SIDEBAR ================= -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Navigation Sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path
+                d="M17 3 3 14v17h9V21h10v10h9V14L17 3Z" fill="#2F8AE0" /></svg>
+          </span>
+          <span class="logo-text">REAL<br>HOMES</span>
+        </a>
+        <button class="sidebar-close" id="sidebarCloseBtn" aria-label="Close menu">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-body">
+        <nav class="sidebar-nav">
+          <a href="index.html" class="sidebar-nav-link">
+            <span class="nav-icon"><i class="fas fa-home"></i></span>
+            <span>Home</span>
+          </a>
+          <a href="properties.html" class="sidebar-nav-link">
+            <span class="nav-icon"><i class="fas fa-building"></i></span>
+            <span>Properties</span>
+          </a>
+          <a href="gallery.html" class="sidebar-nav-link">
+            <span class="nav-icon"><i class="fas fa-images"></i></span>
+            <span>Gallery</span>
+          </a>
+          <a href="about.html" class="sidebar-nav-link active">
+            <span class="nav-icon"><i class="fas fa-info-circle"></i></span>
+            <span>About</span>
+          </a>
+          <a href="blog.html" class="sidebar-nav-link">
+            <span class="nav-icon"><i class="fas fa-newspaper"></i></span>
+            <span>Blog</span>
+          </a>
+          <a href="contact.html" class="sidebar-nav-link">
+            <span class="nav-icon"><i class="fas fa-envelope"></i></span>
+            <span>Contact</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="sidebar-phone-box">
+          <a class="sidebar-phone" href="tel:1-800-555-4321">
+            <span class="phone-icon-wrap"><i class="fas fa-phone-alt"></i></span>
+            <div class="phone-text">
+              <span class="phone-label">Call Us Today</span>
+              <span class="phone-number">1-800-555-4321</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </aside>
 
     <main class="container page-body">
 
@@ -219,17 +132,19 @@
       <!-- ================= NAV TABS ================= -->
       <div class="about-nav-container">
         <nav class="about-nav card">
-          <div class="about-tabs">
-            <a href="#history" class="about-tab-link active">Company History</a>
-            <a href="#leadership" class="about-tab-link">Our Leadership</a>
-            <a href="#offices" class="about-tab-link">Offices Location</a>
-            <a href="#working" class="about-tab-link">Working with Us</a>
+          <div class="about-tabs-wrapper">
+            <button class="about-tab-arrow left" id="aboutTabLeft" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+            <div class="about-tabs" id="aboutTabs">
+              <a href="#history" class="about-tab-link active">Company History</a>
+              <a href="#leadership" class="about-tab-link">Our Leadership</a>
+              <a href="#offices" class="about-tab-link">Offices Location</a>
+              <a href="#working" class="about-tab-link">Working with Us</a>
+            </div>
+            <button class="about-tab-arrow right" id="aboutTabRight" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
           </div>
-          <div style="display: flex; align-items: center; gap: 15px;">
-            <span
-              style="font-weight: 600; color: var(--muted); font-size: 14px;"
-              class="hide-mobile">Got a question?</span>
-            <button class="btn btn-primary">Contact us</button>
+          <div class="about-nav-cta">
+            <span class="about-cta-text">Got a question?</span>
+            <a href="contact.html" class="btn btn-primary">Contact us</a>
           </div>
         </nav>
       </div>
@@ -636,6 +551,43 @@
     <script src="script.js"></script>
     <script>
       // Smooth scroll for about navigation tabs
+      const aboutTabs = document.getElementById('aboutTabs');
+      const tabLeftBtn = document.getElementById('aboutTabLeft');
+      const tabRightBtn = document.getElementById('aboutTabRight');
+
+      // Left and Right arrow click handlers for horizontal scrolling
+      if (aboutTabs && tabLeftBtn && tabRightBtn) {
+        tabLeftBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          aboutTabs.scrollBy({ left: -140, behavior: 'smooth' });
+        });
+
+        tabRightBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          aboutTabs.scrollBy({ left: 140, behavior: 'smooth' });
+        });
+
+        function updateTabArrows() {
+          const maxScroll = aboutTabs.scrollWidth - aboutTabs.clientWidth;
+          if (maxScroll <= 0) {
+            tabLeftBtn.style.opacity = '0.35';
+            tabLeftBtn.style.pointerEvents = 'none';
+            tabRightBtn.style.opacity = '0.35';
+            tabRightBtn.style.pointerEvents = 'none';
+            return;
+          }
+          tabLeftBtn.style.opacity = aboutTabs.scrollLeft <= 5 ? '0.35' : '1';
+          tabLeftBtn.style.pointerEvents = aboutTabs.scrollLeft <= 5 ? 'none' : 'auto';
+          
+          tabRightBtn.style.opacity = (aboutTabs.scrollLeft >= maxScroll - 5) ? '0.35' : '1';
+          tabRightBtn.style.pointerEvents = (aboutTabs.scrollLeft >= maxScroll - 5) ? 'none' : 'auto';
+        }
+
+        aboutTabs.addEventListener('scroll', updateTabArrows);
+        window.addEventListener('resize', updateTabArrows);
+        setTimeout(updateTabArrows, 100);
+      }
+
       document.querySelectorAll('.about-tab-link').forEach(anchor => {
           anchor.addEventListener('click', function (e) {
               e.preventDefault();
@@ -643,13 +595,19 @@
               // Update active state
               document.querySelectorAll('.about-tab-link').forEach(link => link.classList.remove('active'));
               this.classList.add('active');
+
+              // Center the active tab in the scroll view on mobile
+              if (aboutTabs) {
+                this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+              }
               
               const targetId = this.getAttribute('href');
               const targetSection = document.querySelector(targetId);
               
               if (targetSection) {
                   // Adjust for sticky header + sticky nav height
-                  const headerOffset = 180;
+                  const isMobile = window.innerWidth <= 576;
+                  const headerOffset = isMobile ? 120 : 160;
                   const elementPosition = targetSection.getBoundingClientRect().top;
                   const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
   
